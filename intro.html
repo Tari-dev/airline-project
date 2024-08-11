@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.2.3/dist/cdn.min.js" defer></script>
+</head>
+
+<body class="background">
+  <!-- Navigation bar -->
+  <nav class="Navigation h-20 w-full bg-blue-500 relative">
+    <div class="contacts flex justify-center space-x-10 mx-20">
+      <p class="text-white my-5 font-bold">Book</p>
+      <p class="text-white my-5 font-bold">Trips</p>
+      <p class="text-white my-5 font-bold">About Us</p>
+      <p class="text-white my-5 font-bold">Contact</p>
+    </div>
+    <div class="explore absolute top-0 right-0 mt-4 mr-4">
+      <button class="bg-white text-blue-500 font-bold py-2 px-4 rounded">Explore</button>
+    </div>
+  </nav>
+
+  <!-- Image Section -->
+  <div class="relative h-[400px] bg-cover bg-center z-0" style="background-image: url('https://addepto.com/wp-content/uploads/2021/04/artificial-intelligence-used-in-aviation-_1_.webp');">
+    <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-transparent"></div>
+  </div>
+
+  <!-- Tabs Section -->
+  <div class="relative z-10">
+    <div x-data="{ openTab: 1, activeClasses: 'border-l border-t border-r rounded-t text-blue-700', inactiveClasses: 'text-blue-500 hover:text-blue-700' }" class="p-6 bg-blue-500 w-[1300px] mx-auto mt-[-200px]">
+      <ul class="flex border-b">
+        <li @click="openTab = 1" :class="{ '-mb-px': openTab === 1 }" class="-mb-px mr-1">
+          <a href="#" :class="openTab === 1 ? activeClasses : inactiveClasses"
+              class="bg-white inline-block py-2 px-4 font-semibold">
+              Active
+          </a>
+        </li>
+        <li @click="openTab = 2" :class="{ '-mb-px': openTab === 2 }" class="mr-1">
+          <a href="#" :class="openTab === 2 ? activeClasses : inactiveClasses"
+              class="bg-white inline-block py-2 px-4 font-semibold">
+              Tab 2
+          </a>
+        </li>
+        <li @click="openTab = 3" :class="{ '-mb-px': openTab === 3 }" class="mr-1">
+          <a href="#" :class="openTab === 3 ? activeClasses : inactiveClasses"
+              class="bg-white inline-block py-2 px-4 font-semibold">
+              Tab 3
+          </a>
+        </li>
+      </ul>
+      <div class="w-full mt-4">
+        <div x-show="openTab === 1">
+            <div>
+                <div class="flex justify-evenly">
+                  <div><label for="from">From:</label><select name="" id="" class="w-[200px] bg-zinc-400"><option value="">Kerala</option></select></div>
+                  <div><label for="to">To:</label><select name="" id="" class="w-[200px] bg-zinc-400"><option value="">Kerala</option></select></div>
+                  <div><label for="departure">Departure:</label><input type="date"></div>
+                  <div><label for="return">Return:</label><input type="date"></div>
+                  <div><label for="passenger">Passengers/Class:</label><select name="" id=""><option value="">Economy</option></select></div>
+                </div>
+                <center><button class="bg-white my-[40px] w-[300px] h-[60px] rounded-[30px]">Search flights</button></center>
+              </div>
+        </div>
+        <div x-show="openTab === 2">Content for Tab #2</div>
+        <div x-show="openTab === 3">Content for Tab #3</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
