@@ -1,153 +1,164 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.2.3/dist/cdn.min.js" defer></script>
-</head>
-<body class="background bg-blue-950">
-  <!-- Navigation bar -->
-  <nav class="h-20 w-full bg-blue-950 relative flex items-center">
-    <div class="flex justify-left space-x-10 mx-20">
-      <button class="flex items-center"><img src="logo.png" alt="Logo" class="h-14"></button> <!-- Increased height -->
-      <button class="text-white text-base bg-transparent w-[120px] h-[50px] rounded-full font-semibold border-white transition-colors duration-200 hover:border-4 hover:bg-white hover:text-blue-950">
-        Book
-      </button>
-      <button class="text-white text-base bg-transparent w-[120px] h-[50px] rounded-full font-semibold border-white transition-colors duration-200 hover:border-4 hover:bg-white hover:text-blue-950">
-        Trip
-      </button>
-      <button class="text-white text-base bg-transparent w-[120px] h-[50px] rounded-full font-semibold border-white transition-colors duration-200 hover:border-4 hover:bg-white hover:text-blue-950">
-        About Us
-      </button>
-      <button class="text-white text-base bg-transparent w-[120px] h-[50px] rounded-full font-semibold border-white transition-colors duration-200 hover:border-4 hover:bg-white hover:text-blue-950">
-        Contact Us
-      </button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.2.3/dist/cdn.min.js" defer></script>
+  </head>
+  <body class="background bg-blue-950">
+    <!-- Navigation bar -->
+    <nav class="h-20 w-full bg-blue-950 relative flex items-center">
+      <div class="flex justify-left space-x-10 mx-20">
+        <button class="flex items-center"><img src="images/logo.png" alt="Logo" class="h-14" /></button>
+        <!-- Increased height -->
+        <button
+          class="text-white text-base bg-transparent w-[120px] h-[50px] rounded-full font-semibold border-white hover:border-4 hover:bg-white hover:text-blue-950">
+          Book
+        </button>
+        <button
+          class="text-white text-base bg-transparent w-[120px] h-[50px] rounded-full font-semibold border-white  hover:border-4 hover:bg-white hover:text-blue-950">
+          Trip
+        </button>
+        <button
+          class="text-white text-base bg-transparent w-[120px] h-[50px] rounded-full font-semibold border-white  hover:border-4 hover:bg-white hover:text-blue-950">
+          About Us
+        </button>
+        <button
+          class="text-white text-base bg-transparent w-[120px] h-[50px] rounded-full font-semibold border-white  hover:border-4 hover:bg-white hover:text-blue-950">
+          Contact Us
+        </button>
+      </div>
+      <div class="absolute top-0 right-0 mt-4 mr-4">
+        <a href="LoginandRegister.html">
+          <button class="bg-white text-blue-950 font-bold py-2 px-4 rounded-full">Log-in</button>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Image Section -->
+    <div class="relative h-[400px] bg-cover bg-center z-0" style="background-image: url('images/plane.webp')">
+      <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent, #1e3a8a)"></div>
     </div>
-    <div class="absolute top-0 right-0 mt-4 mr-4">
-      <button class="bg-white text-blue-950 font-bold py-2 px-4 rounded-full">Log-in</button>
-    </div>
-  </nav>
-  
-  <!-- Image Section -->
-  <div class="relative h-[400px] bg-cover bg-center z-0" style="background-image: url('plane.webp');">
-    <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent, #1e3a8a);"></div>
-  </div>
-  
-  <!-- Tabs Section -->
-  <div class="relative z-10">
-    <div x-data="{ openTab: 1 }" class="p-6 bg-white w-[1300px] mx-auto mt-[-200px] rounded-[25px]">
-      <ul class="flex border-b border-gray-300">
-        <li @click="openTab = 1" :class="openTab === 1 ? 'bg-white text-blue-900 border-blue-900' : 'bg-blue-900 text-white border-transparent rounded-t-lg'" class="relative mr-2">
-          <a href="#" class="inline-block py-2 px-4 font-semibold rounded-t-lg border-t-2 border-transparent">
-              Book a flight
-          </a>
-          <div x-show="openTab === 1" class="absolute inset-x-0 bottom-0 left-0 h-1 bg-blue-900 rounded-t-lg"></div>
-        </li>
-        <li @click="openTab = 2" :class="openTab === 2 ? 'bg-white text-blue-950 border-blue-950' : 'bg-blue-900 text-white border-transparent rounded-t-lg'" class="relative mr-2">
-          <a href="#" class="inline-block py-2 px-4 font-semibold rounded-t-lg border-t-2 border-transparent">
-              Manage/Check-in
-          </a>
-          <div x-show="openTab === 2" class="absolute inset-x-0 bottom-0 left-0 h-1 bg-blue-900 rounded-t-lg"></div>
-        </li>
-        <li @click="openTab = 3" :class="openTab === 3 ? 'bg-white text-blue-900 border-blue-900' : 'bg-blue-900 text-white border-transparent rounded-t-lg'" class="relative">
-          <a href="#" class="inline-block py-2 px-4 font-semibold rounded-t-lg border-t-2 border-transparent">
-              Flight status
-          </a>
-          <div x-show="openTab === 3" class="absolute inset-x-0 bottom-0 left-0 h-1 bg-blue-900 rounded-t-lg"></div>
-        </li>
-      </ul>
-      <div class="w-full mt-4 rounded-[25px]">
-        <form action="/book_a_flight" method="post">
-        <div x-show="openTab === 1">
-          <div class="flex justify-evenly">
-            <div>
-              <label for="from" class="block text-blue-950">From:</label>
-              <select id="from" name="from" class="w-[200px] bg-white p-2 rounded border border-gray-400">
-                <option value="" disabled selected>Select a location</option>
-                <option value="Kerala">Kerala</option>
-              </select>
+
+    <!-- Tabs Section -->
+    <div class="relative z-10">
+      <div x-data="{ openTab: 1 }" class="p-6 bg-white w-[1300px] mx-auto mt-[-200px] rounded-[25px]">
+        <ul class="flex border-b border-gray-300">
+          <li
+            @click="openTab = 1"
+            :class="openTab === 1 ? 'bg-white text-blue-900 border-blue-900' : 'bg-blue-900 text-white border-transparent rounded-t-lg'"
+            class="relative mr-2">
+            <a href="#" class="inline-block py-2 px-4 font-semibold rounded-t-lg border-t-2 border-transparent"> Book a flight </a>
+            <div x-show="openTab === 1" class="absolute inset-x-0 bottom-0 left-0 h-1 bg-blue-900 rounded-t-lg"></div>
+          </li>
+          <li
+            @click="openTab = 2"
+            :class="openTab === 2 ? 'bg-white text-blue-950 border-blue-950' : 'bg-blue-900 text-white border-transparent rounded-t-lg'"
+            class="relative mr-2">
+            <a href="#" class="inline-block py-2 px-4 font-semibold rounded-t-lg border-t-2 border-transparent"> Manage/Check-in </a>
+            <div x-show="openTab === 2" class="absolute inset-x-0 bottom-0 left-0 h-1 bg-blue-900 rounded-t-lg"></div>
+          </li>
+          <li
+            @click="openTab = 3"
+            :class="openTab === 3 ? 'bg-white text-blue-900 border-blue-900' : 'bg-blue-900 text-white border-transparent rounded-t-lg'"
+            class="relative">
+            <a href="#" class="inline-block py-2 px-4 font-semibold rounded-t-lg border-t-2 border-transparent"> Flight status </a>
+            <div x-show="openTab === 3" class="absolute inset-x-0 bottom-0 left-0 h-1 bg-blue-900 rounded-t-lg"></div>
+          </li>
+        </ul>
+        <div class="w-full mt-4 rounded-[25px]">
+          <form action="/book_a_flight" method="post">
+            <div x-show="openTab === 1">
+              <div class="flex justify-evenly">
+                <div>
+                  <label for="from" class="block text-blue-950">From:</label>
+                  <select id="from" name="from" class="w-[200px] bg-white p-2 rounded border border-gray-400" required>
+                    <option value="" disabled selected>Select a location</option>
+                    <option value="Kerala">Kerala</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="to" class="block text-blue-950">To:</label>
+                  <select id="to" name="to" class="w-[200px] bg-white p-2 rounded border border-gray-400" required>
+                    <option value="" disabled selected>Select a location</option>
+                    <option value="Kerala">Kerala</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="departure" class="block text-blue-950">Departure:</label>
+                  <input
+                    type="date"
+                    id="departure"
+                    class="bg-white p-2 rounded w-[200px] border border-gray-400"
+                    placeholder="Select a date"
+                    crequired />
+                </div>
+                <div>
+                  <label for="return" class="block text-blue-950">Return:</label>
+                  <input type="date" id="return" class="bg-white p-2 rounded w-[200px] border border-gray-400" placeholder="Select a date" required />
+                </div>
+                <div>
+                  <label for="passenger" class="block text-blue-950">Passengers/Class:</label>
+                  <select id="passenger" name="passenger" class="w-[200px] bg-white p-2 rounded border border-gray-400" required>
+                    <option value="" disabled selected>Select class</option>
+                    <option value="Economy">Economy</option>
+                  </select>
+                </div>
+              </div>
+              <center>
+                <button class="bg-blue-900 my-[40px] w-[300px] h-[60px] rounded-[30px] font-semibold text-white">Search flights</button>
+              </center>
             </div>
-            <div>
-              <label for="to" class="block text-blue-950">To:</label>
-              <select id="to" name="to" class="w-[200px] bg-white p-2 rounded border border-gray-400">
-                <option value="" disabled selected>Select a location</option>
-                <option value="Kerala">Kerala</option>
-              </select>
+          </form>
+
+          <form action="/manage" method="post">
+            <div x-show="openTab === 2" class="p-4 bg-white rounded-[25px]">
+              <div class="flex space-x-10">
+                <div class="flex-1">
+                  <label for="reference-number" class="block text-blue-950 font-semibold">Reference Number:</label>
+                  <input type="text" id="reference-number" placeholder="Enter reference number" class="p-2 rounded border border-gray-400 w-full" />
+                </div>
+                <div class="flex-1">
+                  <label for="last-name" class="block text-blue-950 font-semibold">Last Name:</label>
+                  <input type="text" id="last-name" placeholder="Enter last name" class="p-2 rounded border border-gray-400 w-full" />
+                </div>
+              </div>
+              <center>
+                <button class="bg-blue-900 text-white my-4 py-2 px-4 rounded-[25px] w-[300px] h-[60px] font-semibold">Retrieve Booking</button>
+              </center>
             </div>
-            <div>
-              <label for="departure" class="block text-blue-950">Departure:</label>
-              <input type="date" id="departure" class="bg-white p-2 rounded w-[200px] border border-gray-400" placeholder="Select a date">
+          </form>
+
+          <form action="/flight_status" method="post">
+            <div x-show="openTab === 3" class="p-4 bg-white rounded-[25px]">
+              <div class="flex space-x-10">
+                <div class="flex-1">
+                  <label for="from-status" class="block text-blue-950 font-semibold">From:</label>
+                  <select id="from-status" class="p-2 rounded w-full border border-gray-400">
+                    <option value="" disabled selected>From</option>
+                    <option value="Kerala">Kerala</option>
+                  </select>
+                </div>
+                <div class="flex-1">
+                  <label for="to-status" class="block text-blue-950 font-semibold">To:</label>
+                  <select id="to-status" class="p-2 rounded w-full border border-gray-400">
+                    <option value="" disabled selected>To</option>
+                    <option value="Kerala">Kerala</option>
+                  </select>
+                </div>
+                <div class="flex-1">
+                  <label for="date-status" class="block text-blue-950 font-semibold">Date:</label>
+                  <input type="date" id="date-status" class="p-2 rounded w-full border border-gray-400" placeholder="Select a date" />
+                </div>
+              </div>
+              <center>
+                <button class="bg-blue-900 text-white my-4 py-2 px-4 rounded-[25px] w-[300px] h-[60px] font-semibold">Search</button>
+              </center>
             </div>
-            <div>
-              <label for="return" class="block text-blue-950">Return:</label>
-              <input type="date" id="return" class="bg-white p-2 rounded w-[200px] border border-gray-400" placeholder="Select a date">
-            </div>
-            <div>
-              <label for="passenger" class="block text-blue-950">Passengers/Class:</label>
-              <select id="passenger" name="passenger" class="w-[200px] bg-white p-2 rounded border border-gray-400">
-                <option value="" disabled selected>Select class</option>
-                <option value="Economy">Economy</option>
-              </select>
-            </div>
-          </div>
-          <center><button class="bg-blue-900 my-[40px] w-[300px] h-[60px] rounded-[30px] font-semibold text-white">Search flights</button></center>
+          </form>
         </div>
-        </form>
-
-
-
-        <form action="/manage" method="post">
-        <div x-show="openTab === 2" class="p-4 bg-white rounded-[25px]">
-          <div class="flex space-x-10">
-            <div class="flex-1">
-              <label for="reference-number" class="block text-blue-950 font-semibold">Reference Number:</label>
-              <input type="text" id="reference-number" placeholder="Enter reference number" class="p-2 rounded border border-gray-400 w-full">
-            </div>
-            <div class="flex-1">
-              <label for="last-name" class="block text-blue-950 font-semibold">Last Name:</label>
-              <input type="text" id="last-name" placeholder="Enter last name" class="p-2 rounded border border-gray-400 w-full">
-            </div>
-          </div>
-          <center>
-            <button class="bg-blue-900 text-white my-4 py-2 px-4 rounded-[25px] w-[300px] h-[60px] font-semibold">Retrieve Booking</button>
-          </center>
-        </div>
-        </form>
-
-
-
-
-
-        <form action="/flight_status" method="post">
-        <div x-show="openTab === 3" class="p-4 bg-white rounded-[25px]">
-          <div class="flex space-x-10">
-            <div class="flex-1">
-              <label for="from-status" class="block text-blue-950 font-semibold">From:</label>
-              <select id="from-status" class="p-2 rounded w-full border border-gray-400">
-                <option value="" disabled selected>From</option>
-                <option value="Kerala">Kerala</option>
-              </select>
-            </div>
-            <div class="flex-1">
-              <label for="to-status" class="block text-blue-950 font-semibold">To:</label>
-              <select id="to-status" class="p-2 rounded w-full border border-gray-400">
-                <option value="" disabled selected>To</option>
-                <option value="Kerala">Kerala</option>
-              </select>
-            </div>
-            <div class="flex-1">
-              <label for="date-status" class="block text-blue-950 font-semibold">Date:</label>
-              <input type="date" id="date-status" class="p-2 rounded w-full border border-gray-400" placeholder="Select a date">
-            </div>
-          </div>
-          <center>
-            <button class="bg-blue-900 text-white my-4 py-2 px-4 rounded-[25px] w-[300px] h-[60px] font-semibold">Search</button>
-          </center>
-        </div>
-        </form>
       </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>
