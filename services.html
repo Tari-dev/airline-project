@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity=
+    "sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+     crossorigin="anonymous">
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
+     crossorigin="anonymous"></script>
+     <style>
+
+.navbar {
+            background-color: #0a2a66; 
+            height: -20px;
+        }
+        .navbar img{
+            margin-left:-20px;
+            margin-top:-10px;
+        }
+
+        .navbar button{
+            border-radius: 50px;
+            margin-right:-80px;
+            color: #0a2a66;
+            font-weight: bolder;
+            width:-30px;
+        }
+      
+     #carousel-img{
+      height:500px;
+     }
+     .container{
+        margin-top:20px;
+     }
+     .meals{
+        margin-top:50px;
+     }
+     .flex-box1{
+        display: flex;
+     }
+     .card{
+        flex:auto;
+        margin-left: 50px;
+       
+     }
+     h1{
+        margin-left:60px;
+     }
+
+     #card-end{
+        margin-right:18px;
+     }
+     .luggage{
+        margin-top: 50px;
+     }
+     
+     .btn-primary, .carousel-caption button {
+            background-color: #0a2a66;
+            border-color: #0a2a66;
+        }
+     </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img src="logo.png" alt="Bootstrap" width="80" height="60">
+          </a>
+          <button class="bg-white text-blue-950 font-bold py-2 px-4 rounded-full"
+          fdprocessedid="0azrau">Next</button>
+        </div>
+    </nav>
+<div class="container">
+    <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img id="carousel-img" src="flight-food.jpg" class="d-block w-100" alt="flight-food">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Meals</h5>
+              <p>
+                <button type="button" class="btn btn-primary">Book Now</button>
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item ">
+            <img src="flight-luggage.jpg" id="carousel-img" class="d-block w-100" alt="flight-luggage">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Luggage</h5>
+              <p>
+                <button type="button" class="btn btn-primary">Book Now</button>
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item ">
+            <img src="flight-wifi.jpg" id="carousel-img" class="d-block w-100" alt="flight-wifi">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Wifi</h5>
+              <p>
+               <button type="button" class="btn btn-primary">Book Now</button>
+              </p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      </div>
+   <section class="meals">
+    <br>
+    <h1>Meals</h1>
+    <br>
+    <div class="flex-box1">
+        <div class="card" style="width: 18rem;">
+            <img src="veg-combo.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Veg Combo - &#8377;200</h5>
+              <p class="card-text">Savor our wholesome Veg Combo, 
+                offering fresh, flavorful, and nutritious meals for a delightful 
+                in-flight dining experience!</p>
+                <button type="button" class="btn btn-primary">Order Now</button>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem;">
+            <img src="chicken-combo..png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Chicken Combo - &#8377;350</h5>
+              <p class="card-text">Indulge in our mouthwatering Chicken Combo, 
+                featuring juicy, tender chicken paired with a delightful mix of sides 
+                for a perfect in-flight dining experience!</p>
+                <button type="button" class="btn btn-primary">Order Now</button>
+            </div>
+          </div>
+          <div id="card-end" class="card" style="width: 18rem;">
+            <img src="fruits-and-nuts.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Fruits And Nuts Combo - &#8377;250</h5>
+              <p class="card-text">Indulge in our delightful Fruits and Nuts Combo, a perfect blend of
+                 nature's sweetest treasures and wholesome crunch, designed to elevate your travel 
+                 experience!</p>
+                 <button type="button" class="btn btn-primary">Order Now</button>
+            </div>
+          </div>
+      
+</div>
+   </section>
+
+   <section class="luggage">
+    <br>
+    <h1>Luggage</h1>
+    <br>
+    <div class="card" style="width: 90%;">
+        <div class="card-body">
+            <h5 class="card-title">Special Luggage Options - &#8377;1500</h5>
+            <ul>
+                <li><b>Priority Handling:</b> Faster check-in and baggage claim for a seamless experience.</li>
+                <li><b>Extra Weight Allowance:</b> Travel with ease by adding extra luggage weight to your booking.</li>
+                <li><b>Real-Time Tracking:</b> Stay updated on your luggage's journey with live tracking.</li>
+                <li><b>Security Screening:</b> Enhanced safety and security checks for high-value and fragile items.</li>
+                <li><b>Exclusive Insurance:</b> Premium insurance coverage for your special items.</li>
+            </ul>
+            <button type="button" class="btn btn-primary">Add Special Luggage</button>
+        </div>
+    </div>
+   </section>
+
+   <!-- Wifi Section -->
+   <section class="wifi">
+    <br>
+    <h1>In-Flight WiFi</h1>
+    <br>
+    <div class="card" style="width: 90%;">
+        <div class="card-body">
+            <h5 class="card-title">Stay Connected at 30,000 Feet! - &#8377;1500 </h5>
+            <p>Enjoy fast and secure in-flight WiFi, allowing you to stay connected with your work, entertainment, and loved ones while soaring through the skies.</p>
+            <ul>
+                <li><b>Unlimited Browsing:</b> Access the internet without limits during your flight.</li>
+                <li><b>High-Speed Connectivity:</b> Stream videos, check emails, or video call with ease.</li>
+                <li><b>Device Compatibility:</b> Connect your phone, laptop, or tablet effortlessly.</li>
+            </ul>
+            <button type="button" class="btn btn-primary">Book WiFi</button>
+        </div>
+    </div>
+   </section>
+   <br><br>
+
+   <nav class="navbar">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+       <br><br><br>
+      </a>
+      
+    </div>
+</nav>
+      
+</body>
+</html>
