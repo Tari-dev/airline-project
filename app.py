@@ -8,12 +8,9 @@ conn=sql.connect('airline.db')
 c=conn.cursor()
 
 
-
 @app.route('/')
 def home():
     return render_template('intropage.html')
-
-
 
 
 @app.route('/book_a_flight',methods=['GET','POST'])
@@ -27,11 +24,6 @@ def bood_a_flight():
         table=c.fetchall()
         return render_template('intropage',tables=table)
     return render_template('intropage')
-
-
-
-
-
 
 
 @app.route('/manage',methods=['GET','POST'])
@@ -48,11 +40,6 @@ def manage():
     return render_template('intropage')
 
 
-
-
-
-
-
 @app.route('/flight_status',methods=['GET','POST'])
 def flight_status():
     if request=='POST':
@@ -64,10 +51,6 @@ def flight_status():
         val=c.fetchall()
         return render_template('intropage',table=val)
     return render_template('intropage')
-
-
-
-
 
 
 if __name__=='__main__':
