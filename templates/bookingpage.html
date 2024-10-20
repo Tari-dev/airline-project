@@ -10,16 +10,26 @@
         body {
             margin: 0; 
             font-family: Arial, sans-serif;
+            background-color: rgb(0, 0, 107);
+        }
+        .fromto{
+            margin-left:100px;
+            color: white;
+            height:auto;
+            width:auto;
+            font-size: 24px;
+            font-family: Arial, Helvetica, sans-serif;
         }
         header {
             z-index: 1;
             background-attachment: fixed;
-            background-color: rgb(3, 4, 99); 
+            background-color: rgb(0, 0, 107); 
             height: 70px; 
             display: flex;
             align-items: center; 
             justify-content: flex-start; 
             padding: 0 20px; 
+            border-bottom: 6px solid white;
         }
         h1 {
             color: white; 
@@ -53,7 +63,7 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-family: Arial, Helvetica, sans-serif
+            font-family: Arial, Helvetica, sans-serif;
         }
         .ele{
             width: 200px;
@@ -65,7 +75,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-
         }
         .sep{
             width: 500px;
@@ -73,44 +82,77 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            
+        }
+        .noflights {
+            margin-top: 50px;
+            width: 60%;
+            background-color: white;
+            color: rgb(0, 0, 107);
+            text-align: center;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        .back-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: rgb(4, 4, 169);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .back-btn:hover {
+            background-color: rgb(0, 0, 107);
         }
     </style>
 </head>
 <body>
     <header>
-        <div>
-            <img src="path/to/logo.png" alt="Airline logo"> 
+        <center>
+        <div class='fromto'>
+            <p>{{From}} ⇌ {{To}}</p>
         </div>
+        </center>
     </header>
-    <!-- {% for arr in flights%} -->
+    
+    {% if tables | length == 0 %}
+    <center>
+        <div class="noflights">
+            <p>No flights are available at the moment.</p>
+            <button class="back-btn" onclick="window.history.back();">Go Back</button>
+        </div>
+    </center>
+    {% else %}
+    {% for i in tables %}
     <center>
         <div class="booking">
             <div class="elements">
                 <div class="sep">
                     <div class="ele">
-                        <p>{{from}}</p>
+                        <p>{{ i[0] }}</p>
                     </div>
                     <div>
-                        <img src="flight.webp" alt="" class="h-30 mt-4">
+                        <img src="{{ url_for('static', filename='image/flight.webp') }}" alt="" class="h-30 mt-4">
                     </div>
                     <div class="ele">
-                        <p>{{to}}</p>
+                        <p>{{ i[1] }}</p>
                     </div>
                 </div>
                 <div class="ele">
-                    {{seats}}
+                    {{ i[2] }}
                 </div>
                 <div class="ele">
-                    <p>On : {{time}}</p>
+                    <p>₹  {{ i[3] }}</p>
                 </div>
                 <div class="button">
                     <button>Book Flight</button>
                 </div>
             </div>
         </div>
-        
     </center>
-    <!-- {% endfor %} -->
+    {% endfor %}
+    {% endif %}
 </body>
 </html>

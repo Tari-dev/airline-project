@@ -10,7 +10,7 @@
     <!-- Navigation bar -->
     <nav class="h-20 w-full bg-blue-950 relative flex items-center">
       <div class="flex justify-left space-x-10 mx-20">
-        <button class="flex items-center"><img src="images/logo.png" alt="Logo" class="h-14" /></button>
+        <button class="flex items-center"><img src="{{url_for('static',filename='image/logo.png')}}" alt="Logo" class="h-14" /></button>
         <!-- Increased height -->
         <button
           class="text-white text-base bg-transparent w-[120px] h-[50px] rounded-full font-semibold border-white hover:border-4 hover:bg-white hover:text-blue-950">
@@ -18,7 +18,7 @@
         </button>
         <button
           class="text-white text-base bg-transparent w-[120px] h-[50px] rounded-full font-semibold border-white  hover:border-4 hover:bg-white hover:text-blue-950">
-          Trip
+          My Bookings
         </button>
         <button
           class="text-white text-base bg-transparent w-[120px] h-[50px] rounded-full font-semibold border-white  hover:border-4 hover:bg-white hover:text-blue-950">
@@ -37,7 +37,7 @@
     </nav>
 
     <!-- Image Section -->
-    <div class="relative h-[400px] bg-cover bg-center z-0" style="background-image: url('images/plane.webp')">
+    <div class="relative h-[400px] bg-cover bg-center z-0" style="background-image: url({{url_for('static',filename='image/plane.webp')}})">
       <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent, #1e3a8a)"></div>
     </div>
 
@@ -75,14 +75,42 @@
                   <label for="from" class="block text-blue-950">From:</label>
                   <select id="from" name="from" class="w-[200px] bg-white p-2 rounded border border-gray-400" required>
                     <option value="" disabled selected>Select a location</option>
-                    <option value="Kerala">Kerala</option>
+<option value="COK">Cochin International Airport (COK)</option>
+<option value="CCJ">Calicut International Airport (CCJ)</option>
+<option value="TRV">Trivandrum International Airport (TRV)</option>
+<option value="CNN">Kannur International Airport (CNN)</option>
+<option value="MAA">Chennai International Airport (MAA)</option>
+<option value="BOM">Chhatrapati Shivaji Maharaj International Airport (BOM)</option>
+<option value="BLR">Kempegowda International Airport (BLR)</option>
+<option value="SHJ">Sharjah International Airport (SHJ)</option>
+<option value="DXB">Dubai International Airport (DXB)</option>
+<option value="AUH">Abu Dhabi International Airport (AUH)</option>
+<option value="DOH">Hamad International Airport (DOH)</option>
+<option value="BAH">Bahrain International Airport (BAH)</option>
+<option value="LHR">London Heathrow Airport (LHR)</option>
+<option value="JFK">John F. Kennedy International Airport (JFK)</option>
+
                   </select>
                 </div>
                 <div>
                   <label for="to" class="block text-blue-950">To:</label>
                   <select id="to" name="to" class="w-[200px] bg-white p-2 rounded border border-gray-400" required>
                     <option value="" disabled selected>Select a location</option>
-                    <option value="Kerala">Kerala</option>
+<option value="COK">Cochin International Airport (COK)</option>
+<option value="CCJ">Calicut International Airport (CCJ)</option>
+<option value="TRV">Trivandrum International Airport (TRV)</option>
+<option value="CNN">Kannur International Airport (CNN)</option>
+<option value="MAA">Chennai International Airport (MAA)</option>
+<option value="BOM">Chhatrapati Shivaji Maharaj International Airport (BOM)</option>
+<option value="BLR">Kempegowda International Airport (BLR)</option>
+<option value="SHJ">Sharjah International Airport (SHJ)</option>
+<option value="DXB">Dubai International Airport (DXB)</option>
+<option value="AUH">Abu Dhabi International Airport (AUH)</option>
+<option value="DOH">Hamad International Airport (DOH)</option>
+<option value="BAH">Bahrain International Airport (BAH)</option>
+<option value="LHR">London Heathrow Airport (LHR)</option>
+<option value="JFK">John F. Kennedy International Airport (JFK)</option>
+
                   </select>
                 </div>
                 <div>
