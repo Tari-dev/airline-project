@@ -1,17 +1,17 @@
-from flask import Flask, request, Response, render_template
+from flask import Blueprint, request, Response, render_template
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 import sqlite3 as sql
 
-app = Flask(_name_)
+# Blueprint setup
+login_app = Blueprint('login', __name__)
 
-DATABASE = 'dbmspj3.db'
+DATABASE = 'airline.db'
 
-@app.route('/logon', methods=['GET', 'POST'])
-def LoginandRegister():
+@login_app.route('/templates/login-signup-pwdreset.html', methods=['GET', 'POST'])
+def login_and_register():
     if request.method == 'POST':
         action = request.form.get('action')
-
         conn = sql.connect(DATABASE)
 
         if action == 'register':
@@ -48,7 +48,4 @@ def LoginandRegister():
                 conn.close()
                 return Response('Invalid username or password!', status=401, mimetype='text/plain')
 
-    return render_template('LoginandRegister.html')
-
-if _name_ == '_main_':
-    app.run(debug=True)
+    return render_template('login-signup-pwdreset.html')
