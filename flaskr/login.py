@@ -21,7 +21,7 @@ def login_and_register():
         user = cursor.execute('SELECT * FROM users WHERE username = ?', (username,)).fetchone()
 
         if user and check_password_hash(user['password'], password):
-            cursor.execute('UPDATE users SET last_login = ? WHERE userid = ?',
+            cursor.execute('UPDATE users SET LastLogin = ? WHERE userid = ?',
                             (datetime.now(), user['userid']))
             db.commit()
             return Response(f'Login successful! Status: {user["status"]}', status=200, mimetype='text/plain')
@@ -35,7 +35,7 @@ def register():
         if request.method == 'POST':
             username = request.form.get('username')
             email = request.form.get('email')
-            phonenumber = request.form.get('phonenumber')
+            phonenumber = request.form.get('phno')
             password = request.form.get('password')
 
             hashed_password = generate_password_hash(password)
