@@ -24,7 +24,7 @@ codes = {
 
 @index_app.route('/')
 def home():
-    return render_template('index.html')  # Load the index.html file
+    return render_template('index.html')
 
 @index_app.route('/book_a_flight', methods=['GET', 'POST'])
 def book_a_flight():
