@@ -60,7 +60,7 @@
             @click="openTab = 2"
             :class="openTab === 2 ? 'bg-white text-blue-950 border-blue-950' : 'bg-blue-900 text-white border-transparent rounded-t-lg'"
             class="relative mr-2">
-            <a href="#" class="inline-block py-2 px-4 font-semibold rounded-t-lg border-t-2 border-transparent"> Manage/Check-in </a>
+            <a href="#" class="inline-block py-2 px-4 font-semibold rounded-t-lg border-t-2 border-transparent">Round Trip </a>
             <div x-show="openTab === 2" class="absolute inset-x-0 bottom-0 left-0 h-1 bg-blue-900 rounded-t-lg"></div>
           </li>
           <li
@@ -77,7 +77,7 @@
               <div class="flex justify-evenly">
                 <div>
                   <label for="from" class="block text-blue-950">From:</label>
-                  <select id="from" name="from" class="w-[200px] bg-white p-2 rounded border border-gray-400" required>
+                  <select id="from" name="from" class="w-[300px] bg-white p-2 rounded border border-gray-400" required>
                     <option value="" disabled selected>Select a location</option>
                     <option value="COK">Cochin International Airport (COK)</option>
                     <option value="CCJ">Calicut International Airport (CCJ)</option>
@@ -97,7 +97,7 @@
                 </div>
                 <div>
                   <label for="to" class="block text-blue-950">To:</label>
-                  <select id="to" name="to" class="w-[200px] bg-white p-2 rounded border border-gray-400" required>
+                  <select id="to" name="to" class="w-[300px] bg-white p-2 rounded border border-gray-400" required>
                     <option value="" disabled selected>Select a location</option>
                     <option value="COK">Cochin International Airport (COK)</option>
                     <option value="CCJ">Calicut International Airport (CCJ)</option>
@@ -120,17 +120,13 @@
                   <input
                     type="date"
                     id="departure"
-                    class="bg-white p-2 rounded w-[200px] border border-gray-400"
+                    class="bg-white p-2 rounded w-[300px] border border-gray-400"
                     placeholder="Select a date"
                     crequired />
                 </div>
                 <div>
-                  <label for="return" class="block text-blue-950">Return:</label>
-                  <input type="date" id="return" class="bg-white p-2 rounded w-[200px] border border-gray-400" placeholder="Select a date" required />
-                </div>
-                <div>
                   <label for="passenger" class="block text-blue-950">Passengers/Class:</label>
-                  <select id="passenger" name="passenger" class="w-[200px] bg-white p-2 rounded border border-gray-400" required>
+                  <select id="passenger" name="passenger" class="w-[300px] bg-white p-2 rounded border border-gray-400" required>
                     <option value="" disabled selected>Select class</option>
                     <option value="Economy">Economy</option>
                   </select>
@@ -144,19 +140,67 @@
 
           <form action="/manage" method="post">
             <div x-show="openTab === 2" class="p-4 bg-white rounded-[25px]">
-              <div class="flex space-x-10">
-                <div class="flex-1">
-                  <label for="reference-number" class="block text-blue-950 font-semibold">Reference Number:</label>
-                  <input type="text" id="reference-number" placeholder="Enter reference number" class="p-2 rounded border border-gray-400 w-full" />
-                </div>
-                <div class="flex-1">
-                  <label for="last-name" class="block text-blue-950 font-semibold">Last Name:</label>
-                  <input type="text" id="last-name" placeholder="Enter last name" class="p-2 rounded border border-gray-400 w-full" />
-                </div>
-              </div>
-              <center>
-                <button class="bg-blue-900 text-white my-4 py-2 px-4 rounded-[25px] w-[300px] h-[60px] font-semibold">Retrieve Booking</button>
-              </center>
+                <div class="flex justify-evenly">
+                    <div>
+                      <label for="from" class="block text-blue-950">From:</label>
+                      <select id="from" name="from" class="w-[300px] bg-white p-2 rounded border border-gray-400" required>
+                        <option value="" disabled selected>Select a location</option>
+                        <option value="COK">Cochin International Airport (COK)</option>
+                        <option value="CCJ">Calicut International Airport (CCJ)</option>
+                        <option value="TRV">Trivandrum International Airport (TRV)</option>
+                        <option value="CNN">Kannur International Airport (CNN)</option>
+                        <option value="MAA">Chennai International Airport (MAA)</option>
+                        <option value="BOM">Chhatrapati Shivaji Maharaj International Airport (BOM)</option>
+                        <option value="BLR">Kempegowda International Airport (BLR)</option>
+                        <option value="SHJ">Sharjah International Airport (SHJ)</option>
+                        <option value="DXB">Dubai International Airport (DXB)</option>
+                        <option value="AUH">Abu Dhabi International Airport (AUH)</option>
+                        <option value="DOH">Hamad International Airport (DOH)</option>
+                        <option value="BAH">Bahrain International Airport (BAH)</option>
+                        <option value="LHR">London Heathrow Airport (LHR)</option>
+                        <option value="JFK">John F. Kennedy International Airport (JFK)</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="to" class="block text-blue-950">To:</label>
+                      <select id="to" name="to" class="w-[300px] bg-white p-2 rounded border border-gray-400" required>
+                        <option value="" disabled selected>Select a location</option>
+                        <option value="COK">Cochin International Airport (COK)</option>
+                        <option value="CCJ">Calicut International Airport (CCJ)</option>
+                        <option value="TRV">Trivandrum International Airport (TRV)</option>
+                        <option value="CNN">Kannur International Airport (CNN)</option>
+                        <option value="MAA">Chennai International Airport (MAA)</option>
+                        <option value="BOM">Chhatrapati Shivaji Maharaj International Airport (BOM)</option>
+                        <option value="BLR">Kempegowda International Airport (BLR)</option>
+                        <option value="SHJ">Sharjah International Airport (SHJ)</option>
+                        <option value="DXB">Dubai International Airport (DXB)</option>
+                        <option value="AUH">Abu Dhabi International Airport (AUH)</option>
+                        <option value="DOH">Hamad International Airport (DOH)</option>
+                        <option value="BAH">Bahrain International Airport (BAH)</option>
+                        <option value="LHR">London Heathrow Airport (LHR)</option>
+                        <option value="JFK">John F. Kennedy International Airport (JFK)</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="departure" class="block text-blue-950">Return:</label>
+                      <input
+                        type="date"
+                        id="departure"
+                        class="bg-white p-2 rounded w-[300px] border border-gray-400"
+                        placeholder="Select a date"
+                        crequired />
+                    </div>
+                    <div>
+                      <label for="passenger" class="block text-blue-950">Passengers/Class:</label>
+                      <select id="passenger" name="passenger" class="w-[300px] bg-white p-2 rounded border border-gray-400" required>
+                        <option value="" disabled selected>Select class</option>
+                        <option value="Economy">Economy</option>
+                      </select>
+                    </div>
+                  </div>
+                  <center>
+                    <button class="bg-blue-900 my-[40px] w-[300px] h-[60px] rounded-[30px] font-semibold text-white">Search flights</button>
+                  </center>
             </div>
           </form>
 
@@ -166,15 +210,41 @@
                 <div class="flex-1">
                   <label for="from-status" class="block text-blue-950 font-semibold">From:</label>
                   <select id="from-status" class="p-2 rounded w-full border border-gray-400">
-                    <option value="" disabled selected>From</option>
-                    <option value="Kerala">Kerala</option>
+                    <option value="" disabled selected>Select a location</option>
+                        <option value="COK">Cochin International Airport (COK)</option>
+                        <option value="CCJ">Calicut International Airport (CCJ)</option>
+                        <option value="TRV">Trivandrum International Airport (TRV)</option>
+                        <option value="CNN">Kannur International Airport (CNN)</option>
+                        <option value="MAA">Chennai International Airport (MAA)</option>
+                        <option value="BOM">Chhatrapati Shivaji Maharaj International Airport (BOM)</option>
+                        <option value="BLR">Kempegowda International Airport (BLR)</option>
+                        <option value="SHJ">Sharjah International Airport (SHJ)</option>
+                        <option value="DXB">Dubai International Airport (DXB)</option>
+                        <option value="AUH">Abu Dhabi International Airport (AUH)</option>
+                        <option value="DOH">Hamad International Airport (DOH)</option>
+                        <option value="BAH">Bahrain International Airport (BAH)</option>
+                        <option value="LHR">London Heathrow Airport (LHR)</option>
+                        <option value="JFK">John F. Kennedy International Airport (JFK)</option>
                   </select>
                 </div>
                 <div class="flex-1">
                   <label for="to-status" class="block text-blue-950 font-semibold">To:</label>
                   <select id="to-status" class="p-2 rounded w-full border border-gray-400">
-                    <option value="" disabled selected>To</option>
-                    <option value="Kerala">Kerala</option>
+                    <option value="" disabled selected>Select a location</option>
+                        <option value="COK">Cochin International Airport (COK)</option>
+                        <option value="CCJ">Calicut International Airport (CCJ)</option>
+                        <option value="TRV">Trivandrum International Airport (TRV)</option>
+                        <option value="CNN">Kannur International Airport (CNN)</option>
+                        <option value="MAA">Chennai International Airport (MAA)</option>
+                        <option value="BOM">Chhatrapati Shivaji Maharaj International Airport (BOM)</option>
+                        <option value="BLR">Kempegowda International Airport (BLR)</option>
+                        <option value="SHJ">Sharjah International Airport (SHJ)</option>
+                        <option value="DXB">Dubai International Airport (DXB)</option>
+                        <option value="AUH">Abu Dhabi International Airport (AUH)</option>
+                        <option value="DOH">Hamad International Airport (DOH)</option>
+                        <option value="BAH">Bahrain International Airport (BAH)</option>
+                        <option value="LHR">London Heathrow Airport (LHR)</option>
+                        <option value="JFK">John F. Kennedy International Airport (JFK)</option>
                   </select>
                 </div>
                 <div class="flex-1">
