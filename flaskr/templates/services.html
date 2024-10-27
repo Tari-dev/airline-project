@@ -69,12 +69,17 @@
     <nav class="navbar">
         <div class="container">
           <a class="navbar-brand" href="#">
-            <img src="images/logo.png" alt="Bootstrap" width="80" height="60">
+            <img src="{{url_for('static',filename='logo.png')}}" alt="Bootstrap" width="80" height="60">
           </a>
           <button class="bg-white text-blue-950 font-bold py-2 px-4 rounded-full"
           fdprocessedid="0azrau">Next</button>
         </div>
     </nav>
+    <form id="servicesForm" action="{{ url_for('services', passenger_id=passenger_id) }}" method="post" style="display: none;">
+      <input type="hidden" name="meal" id="mealInput">
+      <input type="hidden" name="special_luggage" id="luggageInput">
+      <input type="hidden" name="wifi" id="wifiInput">
+  </form>
 <div class="container">
     <div id="carouselExampleCaptions" class="carousel slide">
         <div class="carousel-indicators">
@@ -84,29 +89,29 @@
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img id="carousel-img" src="images/flight-food.jpg" class="d-block w-100" alt="flight-food">
+            <img id="carousel-img" src="{{url_for('static',filename='flight-food.jpg')}}" class="d-block w-100" alt="flight-food">
             <div class="carousel-caption d-none d-md-block">
               <h5>Meals</h5>
               <p>
-                <button type="button" class="btn btn-primary">Book Now</button>
+                <a href="#meals"><button type="button"  class="btn btn-primary">Book Now</button></a>
               </p>
             </div>
           </div>
           <div class="carousel-item ">
-            <img src="images/flight-luggage.jpg" id="carousel-img" class="d-block w-100" alt="flight-luggage">
+            <img src="{{url_for('static',filename='flight-luggage.jpg')}}" id="carousel-img" class="d-block w-100" alt="flight-luggage">
             <div class="carousel-caption d-none d-md-block">
               <h5>Luggage</h5>
               <p>
-                <button type="button" class="btn btn-primary">Book Now</button>
+               <a href="#luggage"><button type="button" class="btn btn-primary">Book Now</button></a>
               </p>
             </div>
           </div>
           <div class="carousel-item ">
-            <img src="images/flight-wifi.jpg" id="carousel-img" class="d-block w-100" alt="flight-wifi">
+            <img src="{{url_for('static',filename='flight-wifi.jpg')}}" id="carousel-img" class="d-block w-100" alt="flight-wifi">
             <div class="carousel-caption d-none d-md-block">
               <h5>Wifi</h5>
               <p>
-               <button type="button" class="btn btn-primary">Book Now</button>
+               <a href="#wifi"><button type="button" class="btn btn-primary">Book Now</button></a>
               </p>
             </div>
           </div>
@@ -121,46 +126,46 @@
         </button>
       </div>
       </div>
-   <section class="meals">
+   <section id="meals" class="meals">
     <br>
     <h1>Meals</h1>
     <br>
     <div class="flex-box1">
         <div class="card" style="width: 18rem;">
-            <img src="images/veg-combo.jpg" class="card-img-top" alt="...">
+            <img src="{{url_for('static',filename='veg-combo.jpg')}}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">Veg Combo - &#8377;200</h5>
               <p class="card-text">Savor our wholesome Veg Combo, 
                 offering fresh, flavorful, and nutritious meals for a delightful 
                 in-flight dining experience!</p>
-                <button type="button" class="btn btn-primary">Order Now</button>
+                <button type="button" onclick="toggleOrder(this)" class="btn btn-primary">Order Now</button>
             </div>
           </div>
           <div class="card" style="width: 18rem;">
-            <img src="images/chicken-combo..png" class="card-img-top" alt="...">
+            <img src="{{url_for('static',filename='chicken-combo..png')}}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">Chicken Combo - &#8377;350</h5>
               <p class="card-text">Indulge in our mouthwatering Chicken Combo, 
                 featuring juicy, tender chicken paired with a delightful mix of sides 
                 for a perfect in-flight dining experience!</p>
-                <button type="button" class="btn btn-primary">Order Now</button>
+                <button type="button" onclick="toggleOrder(this)" class="btn btn-primary">Order Now</button>
             </div>
           </div>
           <div id="card-end" class="card" style="width: 18rem;">
-            <img src="images/fruits-and-nuts.jpg" class="card-img-top" alt="...">
+            <img src="{{url_for('static',filename='fruits-and-nuts.jpg')}}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">Fruits And Nuts Combo - &#8377;250</h5>
               <p class="card-text">Indulge in our delightful Fruits and Nuts Combo, a perfect blend of
                  nature's sweetest treasures and wholesome crunch, designed to elevate your travel 
                  experience!</p>
-                 <button type="button" class="btn btn-primary">Order Now</button>
+                 <button type="button" onclick="toggleOrder(this)" class="btn btn-primary">Order Now</button>
             </div>
           </div>
       
 </div>
    </section>
 
-   <section class="luggage">
+   <section id="luggage" class="luggage">
     <br>
     <h1>Luggage</h1>
     <br>
@@ -174,12 +179,12 @@
                 <li><b>Security Screening:</b> Enhanced safety and security checks for high-value and fragile items.</li>
                 <li><b>Exclusive Insurance:</b> Premium insurance coverage for your special items.</li>
             </ul>
-            <button type="button" class="btn btn-primary">Add Special Luggage</button>
+            <button type="button" onclick="fun1(this)" class="btn btn-primary">Add Special Luggage</button>
         </div>
     </div>
    </section>
 
-   <section class="wifi">
+   <section id="wifi" class="wifi">
     <br>
     <h1>In-Flight WiFi</h1>
     <br>
@@ -192,11 +197,12 @@
                 <li><b>High-Speed Connectivity:</b> Stream videos, check emails, or video call with ease.</li>
                 <li><b>Device Compatibility:</b> Connect your phone, laptop, or tablet effortlessly.</li>
             </ul>
-            <button type="button" class="btn btn-primary">Book WiFi</button>
+            <button onclick="fun(this)" type="button" class="btn btn-primary">Book Wifi</button>
         </div>
     </div>
    </section>
    <br><br>
+   
 
    <nav class="navbar">
     <div class="container">
@@ -206,6 +212,61 @@
       
     </div>
 </nav>
+<script>
+  document.getElementById('nextButton').addEventListener('click', function() {
+    // Submit the form when the Next button is clicked
+    document.getElementById('servicesForm').submit();
+});
+  function fun(button){
+   if(button.innerText==="Book Wifi"){
+    alert("Congratulations, Wifi Booked!")
+    button.innerText="Remove Wifi";
+    button.classList.remove('btn-primary');
+    button.classList.add('btn-danger');
+   }
+   else{
+    if(confirm("Are You Sure You Want To Remove Wifi?")){
+      alert("Wifi Removed!")
+    }
+    button.innerText="Book Wifi";
+    button.classList.remove('btn-danger');
+    button.classList.add('btn-primary');
+   }
+  }
+  
+  function fun1(button){
+    if(button.innerText==="Add Special Luggage"){
+      alert("Congratulations, Special Luggage Added!")
+    button.innerText="Remove Special Luggage";
+    button.classList.remove('btn-primary');
+    button.classList.add('btn-danger');
+   }
+   else{
+    if(confirm("Are You Sure You Want To Remove Special Luggage?")){
+      alert("Special Luggage Removed!")
+    }
+    button.innerText="Add Special Luggage";
+    button.classList.remove('btn-danger');
+    button.classList.add('btn-primary');
+   }
+  }
+
+  function toggleOrder(button){
+    if (button.innerText === 'Order Now') {
+        alert("Congratulations, Order Placed!")
+        button.innerText = 'Remove Order';
+        button.classList.remove('btn-primary');
+        button.classList.add('btn-danger');
+    } else {
+      if(confirm("Are You Sure You Want To Cancel Order?")){
+        alert("Order Canceled!")
+      }
+        button.innerText = 'Order Now';
+        button.classList.remove('btn-danger');
+        button.classList.add('btn-primary');
+    }
+}
+</script>
       
 </body>
 </html>

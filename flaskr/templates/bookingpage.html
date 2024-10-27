@@ -118,41 +118,46 @@
     </header>
     
     {% if tables | length == 0 %}
-    <center>
-        <div class="noflights">
-            <p>No flights are available at the moment.</p>
-            <button class="back-btn" onclick="window.history.back();">Go Back</button>
-        </div>
-    </center>
-    {% else %}
-    {% for i in tables %}
-    <center>
-        <div class="booking">
-            <div class="elements">
-                <div class="sep">
-                    <div class="ele">
-                        <p>{{ i[0] }}</p>
-                    </div>
-                    <div>
-                        <img src="{{ url_for('static', filename='image/flight.webp') }}" alt="" class="h-30 mt-4">
-                    </div>
-                    <div class="ele">
-                        <p>{{ i[1] }}</p>
-                    </div>
+<center>
+    <div class="noflights">
+        <p>No flights are available at the moment.</p>
+        <button class="back-btn" onclick="window.history.back();">Go Back</button>
+    </div>
+</center>
+{% else %}
+{% for i in tables %}
+<center>
+    <div class="booking">
+        <div class="elements">
+            <div class="sep">
+                <div class="ele">
+                    <p>{{ i[0] }}</p> <!-- FlightNumber -->
+                </div>
+                <div>
+                    <img src="{{ url_for('static', filename='image/flight.webp') }}" alt="" class="h-30 mt-4">
                 </div>
                 <div class="ele">
-                    {{ i[2] }}
-                </div>
-                <div class="ele">
-                    <p>₹  {{ i[3] }}</p>
-                </div>
-                <div class="button">
-                    <button>Book Flight</button>
+                    <p>{{ i[1] }}</p> <!-- DepartureAirport -->
                 </div>
             </div>
+            <div class="ele">
+                {{ i[2] }} <!-- ArrivalAirport -->
+            </div>
+            <div class="ele">
+                <p>₹  {{ i[3] }}</p> <!-- Price -->
+            </div>
+            <div class="button">
+                <form action="{{ url_for('booking.book_flight') }}" method="POST">
+                    <input type="hidden" name="flight_id" value="{{ i[0] }}">  <!-- FlightNumber as FlightId -->
+                    <input type="hidden" name="fare" value="{{ i[3] }}">       <!-- Price as Fare -->
+                    <button type="submit" href="passenger.html">Book Flight</button>
+                </form>
+            </div>
         </div>
-    </center>
-    {% endfor %}
-    {% endif %}
+    </div>
+</center>
+{% endfor %}
+{% endif %}
+
 </body>
 </html>
