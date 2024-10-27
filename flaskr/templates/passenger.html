@@ -120,7 +120,7 @@
     <nav class="navbar">
       <div class="container">
         <a class="navbar-brand" href="#">
-          <img src="images/logo.png" alt="Bootstrap" width="80" height="60" />
+          <img src="{{url_for('static',filename='logo.png')}}" alt="Bootstrap" width="80" height="60" />
         </a>
         <button class="bg-white text-blue-950 font-bold py-2 px-4 rounded-full" fdprocessedid="0azrau">Next</button>
       </div>
@@ -132,25 +132,27 @@
             <div class="card-header">Passenger Details</div>
             <div class="card-body">
               <h5 class="card-title">Contact Details</h5>
-              <form action="" method="post">
+              <form action="/services" method="post">
                 <section class="radio">
-                  <input type="radio" id="male" name="gender" />
+                  <!-- Add 'value' attributes to radio buttons -->
+                  <input type="radio" id="male" name="gender" value="Male" required/>
                   <label>Male</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                  <input type="radio" id="female" name="gender" />
+                  <input type="radio" id="female" name="gender" value="Female" required/>
                   <label>Female</label>
                 </section>
                 <br />
-                <input type="text" placeholder="First And Middle Name" id="fname" required />
+                <!-- Add 'name' attributes to all form inputs -->
+                <input type="text" placeholder="First And Middle Name" id="fname" name="fname" required />
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="text" placeholder="Last Name" id="lname" required />
+                <input type="text" placeholder="Last Name" id="lname" name="lname" required />
                 <br /><br />
-                <input type="text" placeholder="Date Of Birth (Optional) In dd-mm-yyyy Format" id="dob" />
+                <input type="text" placeholder="Date Of Birth (Optional) In dd-mm-yyyy Format" id="dob" name="dob" />
                 <br /><br />
-                <input type="number" placeholder="Primary Contact Number" id="contact" required />
+                <input type="number" placeholder="Primary Contact Number" id="contact" name="contact" required />
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="email" placeholder="E-mail Id" id="email" required />
+                <input type="email" placeholder="E-mail Id" id="email" name="email" required />
                 
-                <label id="address">Address:</label>
+                <label for="address">Address:</label>
                 <br />
                 <textarea id="address" name="address" rows="4" cols="97"></textarea>
                 <br /> 
@@ -169,10 +171,10 @@
                 <div class="card" style="width: 28rem">
                   <div class="card-body">
                     <h5 class="card-title">Departure</h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary" style="font-weight: bolder">Delhi-Dubai</h6>
+                    <h6 class="card-subtitle mb-2 text-body-secondary" style="font-weight: bolder">{{From}} ⇌ {{To}}</h6>
                     <p class="card-text">
                       Sun, 08 Sep 2024 | 03:35 - 22:45 | 21h 40m |<br />
-                      Connect(Mumbai)<br />
+                      
                       Check-in: 30KG | Hand: Up to 7KG
                     </p>
                   </div>
