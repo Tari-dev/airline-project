@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request
-import sqlite3 as sql
+from flaskr.db import get_db
 
 # Blueprint setup
 index_app = Blueprint('index', __name__)
@@ -32,7 +32,7 @@ def book_a_flight():
         From = request.form['from']
         To = request.form['to']
         Passengers = request.form['passenger']
-        conn = sql.connect('airline.db')
+        conn = get_db()
         c = conn.cursor()
         q = 'SELECT DEPARTUREAIRPORT, ARRIVALAIRPORT, AircraftType, Price FROM Flight WHERE DEPARTUREAIRPORT LIKE ? AND ARRIVALAIRPORT LIKE ?'
         c.execute(q, (From, To))
@@ -48,7 +48,7 @@ def manage():
     if request.method == 'POST':
         refno = request.form['reference_number']
         lastname = request.form['last_name']
-        conn = sql.connect('airline.db')
+        conn = get_db()
         c = conn.cursor()
         q = 'DELETE FROM FLIGHT WHERE REFERENCE_NUMBER=?'  # Replace with the correct table name
         c.execute(q, (refno,))
@@ -63,7 +63,7 @@ def flight_status():
         From = request.form['from']
         To = request.form['to']
         date = request.form['date']
-        conn = sql.connect('airline.db')
+        conn = get_db()
         c = conn.cursor()
         q = 'SELECT * FROM FLIGHT WHERE FROM=? AND TO=?'  # Change table name
         c.execute(q, (From, To))

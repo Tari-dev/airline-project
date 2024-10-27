@@ -16,10 +16,13 @@
         <div class="bg-yellow-100 p-4 rounded-lg mb-6">
             <h2 class="text-xl font-semibold text-blue-700 mb-4">Booking Details</h2>
             <div class="space-y-2">
-                <p><strong>Booking ID:</strong> #123456</p>
-                <p><strong>Flight:</strong> AB123 - New York to Los Angeles</p>
-                <p><strong>Amount Paid:</strong> $500</p>
-                <p><strong>Payment Method:</strong> UPI</p>
+                <<p><strong>Booking ID:</strong> {{ booking.booking_id }}</p>
+                <p><strong>Flight:</strong> {{ booking.flight }}</p>
+                <p><strong>Amount Paid:</strong> {{ booking.amount_paid }}</p>
+                <p><strong>Payment Method:</strong> {{ booking.payment_method }}</p>
+                <p><strong>Flight Date:</strong> {{ booking.flight_date }}</p>
+                <p><strong>Passenger:</strong> {{ booking.passenger_name }}</p>
+                
             </div>
         </div>
 

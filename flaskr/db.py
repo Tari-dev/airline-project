@@ -1,7 +1,6 @@
 import sqlite3
-import atexit
 
-from flask import  g, current_app
+from flask import  g, current_app, appcontext_tearing_down
 
 __all__ = ('get_db', 'get_cursor', 'close_db')
 
@@ -13,10 +12,8 @@ def get_db():
 
     return g.db
 
-
-@atexit.register
-def close_db():
+@appcontext_tearing_down
+def close_db(exception=None):
     db = g.pop('db', None)
-
-    if db:
+    if db is not None:
         db.close()
