@@ -35,7 +35,13 @@
       </div>
       <div class="absolute top-0 right-0 mt-4 mr-4">
         <a href="/login"">
-          <button class="bg-white text-blue-950 font-bold py-2 px-4 rounded-full">Log-in</button>
+          <button class="bg-white text-blue-950 font-bold py-2 px-4 rounded-full">
+            {% if user==''%}
+             login
+            {% else %}
+            Hello {{user}}
+            {% endif %}
+          </button>
         </a>
       </div>
     </nav>
@@ -143,7 +149,7 @@
                 <div class="flex justify-evenly">
                     <div>
                       <label for="from" class="block text-blue-950">From:</label>
-                      <select id="from" name="from" class="w-[300px] bg-white p-2 rounded border border-gray-400" required>
+                      <select id="from" name="from" class="w-[200px] bg-white p-2 rounded border border-gray-400" required>
                         <option value="" disabled selected>Select a location</option>
                         <option value="COK">Cochin International Airport (COK)</option>
                         <option value="CCJ">Calicut International Airport (CCJ)</option>
@@ -163,7 +169,7 @@
                     </div>
                     <div>
                       <label for="to" class="block text-blue-950">To:</label>
-                      <select id="to" name="to" class="w-[300px] bg-white p-2 rounded border border-gray-400" required>
+                      <select id="to" name="to" class="w-[200px] bg-white p-2 rounded border border-gray-400" required>
                         <option value="" disabled selected>Select a location</option>
                         <option value="COK">Cochin International Airport (COK)</option>
                         <option value="CCJ">Calicut International Airport (CCJ)</option>
@@ -182,11 +188,20 @@
                       </select>
                     </div>
                     <div>
+                      <label for="departure" class="block text-blue-950">Departure:</label>
+                      <input
+                        type="date"
+                        id="departure"
+                        class="bg-white p-2 rounded w-[200px] border border-gray-400"
+                        placeholder="Select a date"
+                        crequired />
+                    </div>
+                    <div>
                       <label for="departure" class="block text-blue-950">Return:</label>
                       <input
                         type="date"
                         id="departure"
-                        class="bg-white p-2 rounded w-[300px] border border-gray-400"
+                        class="bg-white p-2 rounded w-[200px] border border-gray-400"
                         placeholder="Select a date"
                         crequired />
                     </div>
@@ -199,7 +214,7 @@
                     </div>
                   </div>
                   <center>
-                    <button class="bg-blue-900 my-[40px] w-[300px] h-[60px] rounded-[30px] font-semibold text-white">Search flights</button>
+                    <button class="bg-blue-900 my-[40px] w-[200px] h-[60px] rounded-[30px] font-semibold text-white">Search flights</button>
                   </center>
             </div>
           </form>
