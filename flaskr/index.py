@@ -44,8 +44,8 @@ def book_a_flight():
         return render_template('bookingpage.html', tables=table, From=departf, To=arrivalf)
     return render_template('index.html')
 
-@index_app.route('/manage', methods=['GET', 'POST'])
-def manage():
+@index_app.route('/round-trip', methods=['GET', 'POST'])
+def round_trip():
     if request.method == 'POST':
         From = request.form['from']
         To = request.form['to']
