@@ -144,7 +144,7 @@
             </div>
           </form>
 
-          <form action="/manage" method="post">
+          <form action="/round-trip" method="post">
             <div x-show="openTab === 2" class="p-4 bg-white rounded-[25px]">
                 <div class="flex justify-evenly">
                     <div>
@@ -224,7 +224,7 @@
               <div class="flex space-x-10">
                 <div class="flex-1">
                   <label for="from-status" class="block text-blue-950 font-semibold">From:</label>
-                  <select id="from-status" class="p-2 rounded w-full border border-gray-400">
+                  <select id="from-status" name="from" class="p-2 rounded w-full border border-gray-400">
                     <option value="" disabled selected>Select a location</option>
                         <option value="COK">Cochin International Airport (COK)</option>
                         <option value="CCJ">Calicut International Airport (CCJ)</option>
@@ -244,7 +244,7 @@
                 </div>
                 <div class="flex-1">
                   <label for="to-status" class="block text-blue-950 font-semibold">To:</label>
-                  <select id="to-status" class="p-2 rounded w-full border border-gray-400">
+                  <select id="to-status" name="to" class="p-2 rounded w-full border border-gray-400">
                     <option value="" disabled selected>Select a location</option>
                         <option value="COK">Cochin International Airport (COK)</option>
                         <option value="CCJ">Calicut International Airport (CCJ)</option>
@@ -264,7 +264,7 @@
                 </div>
                 <div class="flex-1">
                   <label for="date-status" class="block text-blue-950 font-semibold">Date:</label>
-                  <input type="date" id="date-status" class="p-2 rounded w-full border border-gray-400" placeholder="Select a date" />
+                  <input type="date" name="date" id="date-status" class="p-2 rounded w-full border border-gray-400" placeholder="Select a date" />
                 </div>
               </div>
               <center>

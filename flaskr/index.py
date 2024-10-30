@@ -35,7 +35,7 @@ def book_a_flight():
         Passengers = request.form['passenger']
         conn = get_db()
         c = conn.cursor()
-        q = 'SELECT DEPARTUREAIRPORT, ARRIVALAIRPORT, AircraftType, Price FROM Flight WHERE DEPARTUREAIRPORT LIKE ? AND ARRIVALAIRPORT LIKE ?'
+        q = 'SELECT DEPARTUREAIRPORT, ARRIVALAIRPORT, DepartureTime, Price FROM Flight WHERE DEPARTUREAIRPORT LIKE ? AND ARRIVALAIRPORT LIKE ?'
         c.execute(q, (From, To))
         table = c.fetchall()
         conn.close()
@@ -52,7 +52,7 @@ def round_trip():
         Passengers = request.form['passenger']
         conn = get_db()
         c = conn.cursor()
-        q = 'SELECT DEPARTUREAIRPORT, ARRIVALAIRPORT, AircraftType, Price FROM Flight WHERE DEPARTUREAIRPORT LIKE ? AND ARRIVALAIRPORT LIKE ?'
+        q = 'SELECT DEPARTUREAIRPORT, ARRIVALAIRPORT, DepartureTime, Price FROM Flight WHERE DEPARTUREAIRPORT LIKE ? AND ARRIVALAIRPORT LIKE ?'
         c.execute(q, (From, To))
         table = c.fetchall()
         conn.close()
@@ -69,9 +69,13 @@ def flight_status():
         date = request.form['date']
         conn = get_db()
         c = conn.cursor()
-        q = 'SELECT * FROM FLIGHT WHERE FROM=? AND TO=?'  # Change table name
+        q = 'SELECT DEPARTUREAIRPORT FROM FLIGHT WHERE DEPARTUREAIRPORT LIKE ? AND ARRIVALAIRPORT LIKE ?'  
         c.execute(q, (From, To))
         val = c.fetchall()
+        l=len(val)
+        df=codes[From]
+        af=codes[To]
+        d=date
         conn.close()
-        return render_template('flightstatus.html', table=val)  # Add a status display page
+        return render_template('status.html',l= l,df=df,af=af,d=d)  
     return render_template('intropage.html')
