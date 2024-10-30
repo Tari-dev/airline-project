@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request,session
 from flaskr.db import get_db
 
 # Blueprint setup
@@ -21,6 +21,7 @@ codes = {
     'LHR': 'London Heathrow Airport',
     'JFK': 'John F. Kennedy International Airport'
 }
+
 
 @index_app.route('/')
 def home():
@@ -46,16 +47,19 @@ def book_a_flight():
 @index_app.route('/manage', methods=['GET', 'POST'])
 def manage():
     if request.method == 'POST':
-        refno = request.form['reference_number']
-        lastname = request.form['last_name']
+        From = request.form['from']
+        To = request.form['to']
+        Passengers = request.form['passenger']
         conn = get_db()
         c = conn.cursor()
-        q = 'DELETE FROM FLIGHT WHERE REFERENCE_NUMBER=?'  # Replace with the correct table name
-        c.execute(q, (refno,))
-        conn.commit()
+        q = 'SELECT DEPARTUREAIRPORT, ARRIVALAIRPORT, AircraftType, Price FROM Flight WHERE DEPARTUREAIRPORT LIKE ? AND ARRIVALAIRPORT LIKE ?'
+        c.execute(q, (From, To))
+        table = c.fetchall()
         conn.close()
-        return render_template('message.html')  # Redirect to a confirmation page
-    return render_template('intropage.html')
+        departf = codes[From]
+        arrivalf = codes[To]
+        return render_template('bookingpage.html', tables=table, From=departf, To=arrivalf)
+    return render_template('index.html')
 
 @index_app.route('/flight_status', methods=['GET', 'POST'])
 def flight_status():
