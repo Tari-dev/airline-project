@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Status</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .outer-container {
+            background-color: rgb(255, 255, 255); 
+            padding: 50px;
+            border-radius: 50px;
+            margin-top: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19); 
+        }
+    
+        .inner-container {
+            display: inline-block;
+            background-color: white;
+            border: 2px solid grey;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    
+        .bottom-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+    
+        .bottom-div {
+            background-color: white;
+            border: 2px solid grey;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+    
+    
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="h-20 w-full bg-blue-950 relative flex items-center">
+        <div class="flex justify-left space-x-10 mx-20">
+            <button class="flex items-center">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="h-14" />
+            </button>
+            <a href="">
+                <button class="text-white text-base bg-transparent w-[120px] h-[50px] rounded-full font-semibold border-white hover:border-4 hover:bg-white hover:text-blue-950">
+                    Book
+                </button>
+            </a>
+            <a href="/my-bookings">
+                <button class="text-white text-base bg-transparent w-[120px] h-[50px] rounded-full font-semibold border-white hover:border-4 hover:bg-white hover:text-blue-950">
+                    My Bookings
+                </button>
+            </a>
+            <button class="text-white text-base bg-transparent w-[120px] h-[50px] rounded-full font-semibold border-white hover:border-4 hover:bg-white hover:text-blue-950">
+                About Us
+            </button>
+            <button class="text-white text-base bg-transparent w-[120px] h-[50px] rounded-full font-semibold border-white hover:border-4 hover:bg-white hover:text-blue-950">
+                Contact Us
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="outer-container mx-20 mt-10">
+        <center>
+            <div class="inner-container">
+                <p>{{ df }} ⇌ {{ af }}</p>
+            </div>
+        </center>
+
+        <div class="bottom-container mt-10">
+            <div class="bottom-div">
+                <p>Date: {{ d }}</p>
+            </div>
+            <div class="bottom-div">
+                <p>Number Of Flights: {{ l }}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
